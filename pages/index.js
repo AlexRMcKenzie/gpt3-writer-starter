@@ -16,10 +16,10 @@ const Home = () => {
       <div className="container">
         <div className="header">
           <div className="header-title">
-            <h1>sup, insert your headline here</h1>
+            <h1>The building blocks of learning</h1>
           </div>
           <div className="header-subtitle">
-            <h2>insert your subtitle here</h2>
+            <h2>Input the subject you want to learn and we'll break it down into it's component parts, so you know what to study next!</h2>
           </div>
         </div>
         <div className="prompt-container">
