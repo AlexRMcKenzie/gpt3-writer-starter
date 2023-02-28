@@ -35,7 +35,7 @@ const Home = () => {
   return (
     <div className="root">
       <Head>
-        <title>GPT-3 Writer | buildspace</title>
+        <title>What do I need to learn?</title>
       </Head>
       <div className="container">
         <div className="header">
@@ -50,12 +50,15 @@ const Home = () => {
           <textarea placeholder="start typing here" className="prompt-box" value={userInput} onChange={onUserChangedText} />
         </div>
         <div className="prompt-buttons">
-          <a className="generate-button" onClick={callGenerateEndpoint}>
-            <div className="generate">
-              <p>Generate</p>
-            </div>
-          </a>
-        </div>
+        <a
+          className={isGenerating ? 'generate-button loading' : 'generate-button'}
+          onClick={callGenerateEndpoint}
+        >
+          <div className="generate">
+          {isGenerating ? <span className="loader"></span> : <p> Generate</p>}
+          </div>
+        </a>
+      </div>
         {apiOutput && (
         <div className="output">
           <div className="output-header-container">
@@ -69,6 +72,8 @@ const Home = () => {
         </div>
         )}
       </div>
+
+
       <div className="badge-container grow">
         <a
           href="https://buildspace.so/builds/ai-writer"
