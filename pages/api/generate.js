@@ -6,14 +6,19 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-const basePromptPrefix = "";
+const basePromptPrefix =
+`
+I want to learn about something, but I don't have a good background knowledge. Could you give me suggestions on core topics to learn, so I can understand the fundamentals of the subject. Please order the topics in terms of which is most important to understand first.
+
+The subject I want to learn about is:
+`;
 const generateAction = async (req, res) => {
   //Run first prompt
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`)
 
   const baseCompletion = await openai.createCompletion({
     model: 'text-davinci-003',
-    prompt: `${basePromptPrefix}${req.body.userInput}`,
+    prompt: `${basePromptPrefix}${req.body.userInput}\n`,
     temperature: 0.7,
     max_tokens: 250,
   });
