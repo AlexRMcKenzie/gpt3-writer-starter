@@ -25,6 +25,22 @@ const generateAction = async (req, res) => {
 
   const basePromptOutput = baseCompletion.data.choices.pop();
 
+  // // Prompt #2
+  // const secondPrompt =
+  // `
+  // Take the first topic from the list above and write a short primer on the topic to give a good base level of understanding on that particular subject:
+  // `
+
+  // const secondPromptCompletion = await openai.createCompletion({
+  //   model: 'text-davinci-003',
+  //   prompt: `${secondPrompt}`,
+  //   temperature: 0.7,
+  //   max_tokens: 500,
+  // });
+
+  // const secondPromptOutput = secondPromptCompletion.data.choices.pop();
+
+
   res.status(200).json({ output: basePromptOutput });
 };
 
